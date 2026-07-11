@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>FinLit Buddy | Financial Literacy Assistant</title>
+
+  <meta
+    name="description"
+    content="FinLit Buddy helps young adults in Singapore make clearer financial decisions using trusted guidance on budgeting, CPF, scams, and financial products."
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!--
+    BOTPRESS EMBED INSTRUCTIONS:
+    1. Open your Botpress bot.
+    2. Go to Webchat > Deploy Settings.
+    3. Copy your embed code.
+    4. Paste the embed scripts here before </head>, or paste them in the chatbot section below.
+
+    Example format:
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/...your-bot-config.js" defer></script>
+  -->
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        <img src="assets/finlit-logo.jpg" alt="FinLit Buddy logo" class="brand-logo" />
+        <span>FinLit Buddy</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#chatbot">Chatbot</a>
+        <a href="index.html#sources">Sources</a>
+        <a href="about.html">About Us</a>
+      </div>
+
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        🌙 Dark
+      </button>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-content">
+        <p class="eyebrow">Singapore-focused financial literacy assistant</p>
+
+        <h1>Make smarter money decisions as you enter the workforce.</h1>
+
+        <p class="hero-text">
+          FinLit Buddy helps young adults understand budgeting, CPF, financial products,
+          and early-career money planning through clear, source-backed guidance.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#tools" class="btn btn-primary">Try the tools</a>
+          <a href="#chatbot" class="btn btn-outline">Open chatbot</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img src="assets/finlit-logo.jpg" alt="FinLit Buddy logo preview" />
+
+        <div>
+          <h2>Built for first-jobbers</h2>
+          <p>
+            Guidance that is practical, beginner-friendly, and grounded in trusted
+            Singapore financial sources.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">What it does</p>
+
+        <h2>A financial buddy, not random online advice.</h2>
+
+        <p>
+          The goal is to help users make career-stage-appropriate financial decisions
+          without relying on guesswork, social media advice, or unverified opinions.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="icon">💰</div>
+          <h3>Budgeting guidance</h3>
+          <p>
+            Helps users estimate how much to allocate to needs, wants, savings,
+            and emergency funds.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon">🏦</div>
+          <h3>CPF awareness</h3>
+          <p>
+            Explains CPF-related concepts in beginner-friendly language and encourages
+            source checking.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon">🛡️</div>
+          <h3>Safer financial decisions</h3>
+          <p>
+            Encourages users to check official sources before acting on financial claims,
+            products, or advice.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon">📊</div>
+          <h3>Product comparison</h3>
+          <p>
+            Encourages users to compare fees, risks, lock-in periods, and suitability
+            before choosing financial products.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tools" class="section split-section">
+      <div class="section-heading">
+        <p class="eyebrow">Prototype tools</p>
+
+        <h2>Interactive tools for your demo</h2>
+
+        <p>
+          These simple tools make the website feel more like a real financial literacy
+          product than a static school page.
+        </p>
+      </div>
+
+      <div class="tool-grid two-tools">
+        <article class="tool-card">
+          <h3>Budget Split Generator</h3>
+
+          <p>
+            Enter your monthly take-home pay to generate a simple starting budget.
+          </p>
+
+          <label for="incomeInput">Monthly take-home pay (SGD)</label>
+          <input type="number" id="incomeInput" placeholder="e.g. 2600" min="0" />
+
+          <button class="btn btn-primary full-width" onclick="calculateBudget()">
+            Generate budget
+          </button>
+
+          <div class="result-box" id="budgetResult">
+            Your suggested budget will appear here.
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <h3>Financial Health Check</h3>
+
+          <p>
+            Estimate your basic readiness based on savings and spending habits.
+          </p>
+
+          <label for="expenseInput">Monthly expenses (SGD)</label>
+          <input type="number" id="expenseInput" placeholder="e.g. 1500" min="0" />
+
+          <label for="savingInput">Current savings (SGD)</label>
+          <input type="number" id="savingInput" placeholder="e.g. 4000" min="0" />
+
+          <button class="btn btn-primary full-width" onclick="calculateHealth()">
+            Check readiness
+          </button>
+
+          <div class="result-box" id="healthResult">
+            Your readiness score will appear here.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="chatbot" class="section chatbot-section">
+      <div class="section-heading">
+        <p class="eyebrow">Botpress integration</p>
+
+        <h2>Ask FinLit Buddy</h2>
+
+        <p>
+          This section is ready for your Botpress chatbot. Replace the placeholder
+          with your actual Botpress embed code.
+        </p>
+      </div>
+
+      <div class="chatbot-layout">
+        <div class="chat-preview">
+          <div class="chat-window">
+            <div class="chat-header">
+              <span class="status-dot"></span>
+              <strong>FinLit Buddy</strong>
+            </div>
+
+            <div class="chat-message bot">
+              Hi, I can help with budgeting, CPF basics, financial product awareness,
+              and early-career financial planning.
+            </div>
+
+            <div class="chat-message user">
+              How should I split my first full-time salary?
+            </div>
+
+            <div class="chat-message bot">
+              Start by covering essentials, setting aside savings, then planning flexible spending.
+              For exact guidance, check the linked official sources.
+            </div>
+          </div>
+        </div>
+
+        <div class="embed-card">
+          <h3>Botpress embed area</h3>
+
+          <p>
+            Paste your Botpress embed code into <code>index.html</code>. Once added,
+            the chatbot will appear on this website.
+          </p>
+
+          <div id="webchat-container" class="botpress-container">
+            <p class="placeholder-text">
+              Botpress chatbot will load here after you paste your embed code.
+            </p>
+          </div>
+
+          <!--
+            INLINE BOTPRESS EMBED OPTION:
+            Paste your Botpress embed code here if you want it to appear inside this section.
+
+            Example:
+            <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+            <script src="https://files.bpcontent.cloud/...your-bot-config.js" defer></script>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <section id="sources" class="section sources-section">
+      <div class="section-heading">
+        <p class="eyebrow">Trusted knowledge base</p>
+
+        <h2>Source-backed financial guidance</h2>
+
+        <p>
+          Your RAG/database work should organize clean source material before it is
+          uploaded into Botpress.
+        </p>
+      </div>
+
+      <div class="source-grid">
+        <article class="source-card">
+          <h3>MAS</h3>
+          <p>
+            Useful for investor alerts, financial regulation, and consumer protection guidance.
+          </p>
+        </article>
+
+        <article class="source-card">
+          <h3>CPF Board</h3>
+          <p>
+            Useful for CPF basics, contribution concepts, account types, and
+            retirement-related explanations.
+          </p>
+        </article>
+
+        <article class="source-card">
+          <h3>MoneySense</h3>
+          <p>
+            Useful for budgeting, insurance, investing basics, and financial planning education.
+          </p>
+        </article>
+      </div>
+
+      <div class="rag-box">
+        <h3>Suggested knowledge base format</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Topic</th>
+                <th>User Question</th>
+                <th>Verified Answer</th>
+                <th>Source</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Budgeting</td>
+                <td>How should I split my salary?</td>
+                <td>Give a beginner-friendly budgeting structure and encourage regular review.</td>
+                <td>MoneySense</td>
+                <td>Educational only</td>
+              </tr>
+
+              <tr>
+                <td>CPF</td>
+                <td>What is CPF?</td>
+                <td>Explain CPF as a Singapore savings and social security system.</td>
+                <td>CPF Board</td>
+                <td>Avoid outdated rates</td>
+              </tr>
+
+              <tr>
+                <td>Financial products</td>
+                <td>How do I compare financial products?</td>
+                <td>Compare fees, risks, lock-in periods, and suitability before deciding.</td>
+                <td>MAS / MoneySense</td>
+                <td>No product pushing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 FinLit Buddy. School prototype for C240 AI Essentials & Innovations.</p>
+    <p>Educational guidance only. Not financial advice.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
