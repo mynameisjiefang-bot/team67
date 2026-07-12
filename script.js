@@ -16,12 +16,24 @@ function formatMoney(value) {
   }).format(value);
 }
 
+function getPositiveNumber(id) {
+  const input = document.getElementById(id);
+  const value = Number(input.value);
+
+  if (!Number.isFinite(value) || value <= 0 || value > 1000000) {
+    input.focus();
+    return null;
+  }
+
+  return value;
+}
+
 function calculateBudget() {
-  const income = Number(document.getElementById("incomeInput").value);
+  const income = getPositiveNumber("incomeInput");
   const result = document.getElementById("budgetResult");
 
-  if (!income || income <= 0) {
-    result.innerHTML = "Enter a valid monthly take-home pay.";
+  if (income === null) {
+    result.innerHTML = "Enter a realistic monthly take-home pay between $1 and $1,000,000.";
     return;
   }
 
@@ -30,21 +42,30 @@ function calculateBudget() {
   const savings = income * 0.2;
 
   result.innerHTML = `
-    <strong>Suggested starting split:</strong><br>
-    Needs: ${formatMoney(needs)}<br>
-    Wants: ${formatMoney(wants)}<br>
-    Savings / emergency fund: ${formatMoney(savings)}<br>
-    <small>Use this as a starting point, then adjust based on your real expenses.</small>
+    <strong>Suggested starting split</strong>
+    <div class="result-breakdown">
+      <span>Needs <strong>${formatMoney(needs)}</strong></span>
+      <span>Wants <strong>${formatMoney(wants)}</strong></span>
+      <span>Savings / emergency fund <strong>${formatMoney(savings)}</strong></span>
+    </div>
+    <small>For ${formatMoney(income)} take-home pay, this gives you a simple structure to review against your real expenses.</small>
   `;
 }
 
+function resetBudget() {
+  document.getElementById("incomeInput").value = "";
+  document.getElementById("budgetResult").textContent = "Your suggested budget will appear here.";
+}
+
 function calculateHealth() {
-  const expenses = Number(document.getElementById("expenseInput").value);
-  const savings = Number(document.getElementById("savingInput").value);
+  const expenses = getPositiveNumber("expenseInput");
+  const savingInput = document.getElementById("savingInput");
+  const savings = Number(savingInput.value);
   const result = document.getElementById("healthResult");
 
-  if (!expenses || expenses <= 0 || savings < 0) {
-    result.innerHTML = "Enter valid monthly expenses and current savings.";
+  if (expenses === null || !Number.isFinite(savings) || savings < 0 || savings > 10000000) {
+    savingInput.focus();
+    result.innerHTML = "Enter realistic values: expenses above $0 and savings between $0 and $10,000,000.";
     return;
   }
 
@@ -61,11 +82,22 @@ function calculateHealth() {
     note = "You have some buffer, but should continue building savings.";
   }
 
+  const score = Math.min(100, Math.round((monthsCovered / 6) * 100));
+
   result.innerHTML = `
-    <strong>Status: ${status}</strong><br>
-    Emergency fund coverage: ${monthsCovered.toFixed(1)} month(s)<br>
-    <small>${note}</small>
+    <strong>${score}/100 — ${status}</strong>
+    <div class="score-meter" aria-label="Financial health score: ${score} out of 100">
+      <span style="width: ${score}%"></span>
+    </div>
+    <strong>Emergency fund coverage: ${monthsCovered.toFixed(1)} month(s)</strong><br>
+    <small>${note} A score closer to 100 means your current savings cover more of a six-month emergency buffer.</small>
   `;
+}
+
+function resetHealth() {
+  document.getElementById("expenseInput").value = "";
+  document.getElementById("savingInput").value = "";
+  document.getElementById("healthResult").textContent = "Your readiness score will appear here.";
 }
 
 if (themeToggle) {

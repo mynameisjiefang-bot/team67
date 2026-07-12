@@ -79,8 +79,8 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#tools" class="btn btn-primary">Try the tools</a>
-            <a href="#chatbot" class="btn btn-outline">Open chatbot</a>
+            <a href="#tools" class="btn btn-primary">Try the Financial Health Check</a>
+            <a href="#chatbot" class="btn btn-outline">Ask FinLit Buddy a Question</a>
           </div>
         </div>
 
@@ -185,9 +185,22 @@
               Generate budget
             </button>
 
+            <button
+              class="btn btn-secondary full-width"
+              type="button"
+              onclick="resetBudget()"
+            >
+              Reset
+            </button>
+
             <div class="result-box" id="budgetResult">
               Your suggested budget will appear here.
             </div>
+
+            <p class="tool-disclaimer">
+              Educational estimate only. Adjust the percentages based on your
+              actual commitments and financial goals.
+            </p>
           </article>
 
           <article class="tool-card">
@@ -221,9 +234,22 @@
               Check readiness
             </button>
 
+            <button
+              class="btn btn-secondary full-width"
+              type="button"
+              onclick="resetHealth()"
+            >
+              Reset
+            </button>
+
             <div class="result-box" id="healthResult">
               Your readiness score will appear here.
             </div>
+
+            <p class="tool-disclaimer">
+              Educational estimate only. This score is not a financial health
+              assessment or professional advice.
+            </p>
           </article>
         </div>
       </section>
@@ -287,6 +313,69 @@
             <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
             <script src="https://files.bpcontent.cloud/...your-bot-config.js" defer></script>
           --></div>
+        </div>
+      </section>
+
+      <section id="demo" class="section demo-section">
+        <div class="section-heading">
+          <p class="eyebrow">Product demonstration</p>
+
+          <h2>See how FinLit Buddy turns a question into guidance.</h2>
+
+          <p>
+            Each response is designed to be practical, beginner-friendly, and
+            connected to a trusted source.
+          </p>
+        </div>
+
+        <div class="demo-layout">
+          <div class="demo-visual">
+            <div class="demo-browser-bar">
+              <span></span><span></span><span></span>
+              <strong>FinLit Buddy chat</strong>
+            </div>
+
+            <div class="demo-chat">
+              <div class="chat-message user">
+                How should I split my first full-time salary?
+              </div>
+
+              <div class="chat-message bot">
+                Start by separating essentials, savings, and flexible spending.
+                A simple starting point is 50% for needs, 20% for savings, and
+                the remaining amount for wants and personal goals. Adjust this
+                after reviewing your actual expenses.
+              </div>
+
+              <div class="source-chip">Source: MoneySense budgeting guidance</div>
+            </div>
+          </div>
+
+          <div class="demo-details">
+            <article class="demo-step">
+              <span class="demo-step-number">1</span>
+              <div>
+                <h3>User question</h3>
+                <p>The user asks for practical help with a first-job decision.</p>
+              </div>
+            </article>
+
+            <article class="demo-step">
+              <span class="demo-step-number">2</span>
+              <div>
+                <h3>Grounded answer</h3>
+                <p>The chatbot gives a clear starting point without pretending to know the user’s full situation.</p>
+              </div>
+            </article>
+
+            <article class="demo-step">
+              <span class="demo-step-number">3</span>
+              <div>
+                <h3>Source shown</h3>
+                <p>The supporting source is visible so users can verify the guidance and explore further.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
