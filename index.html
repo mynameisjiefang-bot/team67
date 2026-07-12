@@ -386,9 +386,26 @@
           <h2>Source-backed financial guidance</h2>
 
           <p>
-            Your RAG/database work should organize clean source material before
-            it is uploaded into Botpress.
+            FinLit Buddy's guidance is prepared from reputable Singapore
+            sources and reviewed for clear, educational use before it reaches
+            the chatbot.
           </p>
+
+          <div class="verification-banner">
+            <img
+              src="assets/finlit-logo.jpg"
+              alt="FinLit Buddy logo"
+              class="verification-logo"
+            />
+            <div>
+              <strong>Verified from reputable sources</strong>
+              <p>
+                Our knowledge base uses trusted organisations such as
+                MoneySense, CPF Board, and the Monetary Authority of Singapore
+                (MAS).
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="source-grid">
@@ -418,7 +435,13 @@
         </div>
 
         <div class="rag-box">
-          <h3>Suggested knowledge base format</h3>
+          <div class="rag-heading">
+            <div>
+              <p class="eyebrow">Completed RAG preparation</p>
+              <h3>Verified knowledge base examples</h3>
+            </div>
+            <span class="verified-badge">✓ Source checked</span>
+          </div>
 
           <div class="table-wrap">
             <table>
@@ -437,10 +460,11 @@
                   <td>Budgeting</td>
                   <td>How should I split my salary?</td>
                   <td>
-                    Give a beginner-friendly budgeting structure and encourage
-                    regular review.
+                    Start by separating essential expenses, savings, and
+                    flexible spending. Review the plan regularly as income and
+                    priorities change.
                   </td>
-                  <td>MoneySense</td>
+                  <td><a href="https://www.moneysense.gov.sg/" target="_blank" rel="noopener">MoneySense</a></td>
                   <td>Educational only</td>
                 </tr>
 
@@ -448,10 +472,11 @@
                   <td>CPF</td>
                   <td>What is CPF?</td>
                   <td>
-                    Explain CPF as a Singapore savings and social security
-                    system.
+                    CPF is Singapore's social security savings scheme, funded
+                    through mandatory contributions from employees and
+                    employers.
                   </td>
-                  <td>CPF Board</td>
+                  <td><a href="https://www.cpf.gov.sg/" target="_blank" rel="noopener">CPF Board</a></td>
                   <td>Avoid outdated rates</td>
                 </tr>
 
@@ -460,9 +485,9 @@
                   <td>How do I compare financial products?</td>
                   <td>
                     Compare fees, risks, lock-in periods, and suitability before
-                    deciding.
+                    deciding. Do not choose a product based only on returns.
                   </td>
-                  <td>MAS / MoneySense</td>
+                  <td><a href="https://www.mas.gov.sg/" target="_blank" rel="noopener">MAS / MoneySense</a></td>
                   <td>No product pushing</td>
                 </tr>
               </tbody>
